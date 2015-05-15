@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
+<template name='Menu'>
+    <ul class="nav nav-pills">
+        <li role="presentation" class="{{ activeIfTemplateIs '' }}">
+            <a href="/">Blog</a>
+        </li>
+        <li role="presentation" class="{{ activeIfTemplateIs 'About' }}">
+            <a href="{{pathFor 'about'}}">About</a>
+        </li>
 
-</body>
-</html>
+        <li role="presentation" class="{{ activeIfTemplateIs 'Login' }}">
+            <a href="{{pathFor 'admin'}}">Log in</a>
+        </li>
+    </ul>
+</template>

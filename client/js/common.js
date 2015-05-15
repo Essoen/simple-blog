@@ -4,4 +4,5 @@
 
 Blogposts = new Mongo.Collection("Blogposts");
 
+Session.set("availableRoles", ['admin', 'author']);
 

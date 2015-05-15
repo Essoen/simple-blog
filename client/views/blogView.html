@@ -1,7 +1,13 @@
-<template name="blogUserApp">
+<template name="Blog">
     {{#each Blogposts}}
+        <h3><a href="posts/{{_id}}"> {{title}} </a> </h3>
+        <h4>Written at {{time}} by {{author.profile.name}}</h4>
+        <p>{{content}}</p>
+    {{/each}}
+</template>
+
+<template name="Post">
     <h3>{{title}}</h3>
     <h4>Written at {{time}} by {{author.profile.name}}</h4>
     <p>{{content}}</p>
-    {{/each}}
 </template>

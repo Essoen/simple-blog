@@ -1,30 +1,51 @@
-<template name="blogAdminApp">
+<template name="Login">
+    {{#if userIsAdmin}}
+        {{> BlogAdmin}}
+    {{else}}
+        {{> loginButtons}}
+    {{/if}}
+</template>
+
+<template name="BlogAdmin">
     {{#each Blogposts}}
     <h3>{{title}}</h3>
     <h4>Written at {{time}} by {{author.profile.name}}</h4> <button id="deletePost">Delete this post</button>
     <p>{{content}}</p>
     {{/each}}
-
-    {{> blogPostEntry}}
-
-    {{> userAdmin}}
+    <p>
+        {{> NewPost}}
+    </p>
+    <p>
+        {{> UserAdministration}}
+    </p>
 </template>
 
 
-<template name="blogPostEntry">
+<template name="NewPost">
     <h3>Create new post</h3>
     Title: <input type="text" id="title" value=""> <br>
-    Content: <input type="text" id="content" value=""> <br>
+    Content: <input type="" id="content" value=""> <br>
     <button>Save post!</button>
 </template>
 
-<template name="userAdmin">
-    {{#each}}
-        {{profile}} <button id="delete">Delete</button>
+<template name="UserAdministration">
+    <h3>Delete a user</h3>
+    {{#each User}}
+        <p>
+            {{profile.name}}
+            {{roles}}<button id="delete">Delete</button>
+        </p>
     {{/each}}
-    {{> createUser}}
+    {{> CreateUser}}
 </template>
 
-<template name="createUser">
+<template name="CreateUser">
+
+    <h3>Add a new user</h3>
+    Name: <input type="text" title="name"> <br>
+    Email: <input type="text" title="email"> <br>
+    Roles: {{#each Roles}} <input type="checkbox" value="{{this}}">{{this}} {{/each}}
+    <br>
+    <button id="create">Create this user</button>
 
 </template>
