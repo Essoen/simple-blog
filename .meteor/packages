@@ -9,6 +9,5 @@ insecure
 bootstrap
 accounts-password
 alanning:roles
-autopublish
 iron:router
 ian:accounts-ui-bootstrap-3
