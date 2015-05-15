@@ -38,29 +38,6 @@
     {{/if}}
 </template>
 
-<template name="blogUserApp">
-    {{#each Blogposts}}
-        <h3>{{title}}</h3>
-        <h4>Written at {{time}} by {{author}}</h4>
-        <p>{{content}}</p>
-    {{/each}}
-</template>
-
-<template name="blogAdminApp">
-    {{#each Blogposts}}
-        <h3>{{title}}</h3>
-        <h4>Written at {{time}} by {{author}}</h4> <button id="deletePost">Delete this post</button>
-        <p>{{content}}</p>
-    {{/each}}
-
-    {{> blogPostEntry}}
-</template>
 
 
-<template name="blogPostEntry">
-    <h3>Create new post</h3>
-    Title: <input type="text" id="title" value=""> <br>
-    Content: <input type="text" id="content" value=""> <br>
-    <button>Save post!</button>
-</template>
 

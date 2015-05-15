@@ -1,0 +1,7 @@
+<template name="blogUserApp">
+    {{#each Blogposts}}
+    <h3>{{title}}</h3>
+    <h4>Written at {{time}} by {{author.profile.name}}</h4>
+    <p>{{content}}</p>
+    {{/each}}
+</template>

@@ -1,0 +1,30 @@
+<template name="blogAdminApp">
+    {{#each Blogposts}}
+    <h3>{{title}}</h3>
+    <h4>Written at {{time}} by {{author.profile.name}}</h4> <button id="deletePost">Delete this post</button>
+    <p>{{content}}</p>
+    {{/each}}
+
+    {{> blogPostEntry}}
+
+    {{> userAdmin}}
+</template>
+
+
+<template name="blogPostEntry">
+    <h3>Create new post</h3>
+    Title: <input type="text" id="title" value=""> <br>
+    Content: <input type="text" id="content" value=""> <br>
+    <button>Save post!</button>
+</template>
+
+<template name="userAdmin">
+    {{#each}}
+        {{profile}} <button id="delete">Delete</button>
+    {{/each}}
+    {{> createUser}}
+</template>
+
+<template name="createUser">
+
+</template>
