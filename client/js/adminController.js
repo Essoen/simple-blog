@@ -27,7 +27,7 @@ Template.Admin.events({
         Session.set('adminChosenView', 'NewPost');
     },
     'click #LogoutButton' : function(){
-        Meteor.logout(); 
+        Meteor.logout();
     }
 });
 
@@ -57,7 +57,7 @@ Template.Admin.events({
 });
 
 Template.NewPost.events({
-    'click button': function (event, template) {
+    'click #save': function (event, template) {
         Blogposts.insert({
             time: new Date(),
             author: Meteor.user(),

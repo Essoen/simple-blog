@@ -15,7 +15,7 @@
             Administrative actions <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
-            <li><a id="BlogAdmin" href="#">Old posts</a></li>
+            <li><a id="BlogAdmin" href="#">Manage posts</a></li>
             <li><a id="NewPost" href="#">Create new post</a></li>
             <li><a id="UserAdministration" href="#">User administration</a></li>
             <li class="divider"></li>
@@ -39,9 +39,9 @@
 
 <template name="NewPost">
     <h3>Create new post</h3>
-    Title: <input type="text" id="title" value=""> <br>
-    <textarea id="content" > </textarea> <br>
-    <button>Save post!</button>
+    Title: <input type="text" id="title" value=""> <button id="save">Save post!</button> <br>
+    <textarea id="content" rows="15" > </textarea>
+
 </template>
 
 <template name="UserAdministration">
