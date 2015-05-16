@@ -5,5 +5,8 @@
 Template.Menu.helpers({
     activeIfTemplateIs: function (template) {
         return template === Router.current().lookupTemplate() ? 'active' : '';
+    },
+    loggedIn : function() {
+        return Meteor.user() != null;
     }
 });

@@ -3,12 +3,13 @@
         <li role="presentation" class="{{ activeIfTemplateIs '' }}">
             <a href="/">Blog</a>
         </li>
+
         <li role="presentation" class="{{ activeIfTemplateIs 'About' }}">
             <a href="{{pathFor 'about'}}">About</a>
         </li>
 
-        <li role="presentation" class="{{ activeIfTemplateIs 'Login' }}">
-            <a href="{{pathFor 'admin'}}">Log in</a>
+        <li role="presentation" class="{{ activeIfTemplateIs 'Login'}}">
+            <a href="{{pathFor 'admin'}}">{{#if loggedIn }} Admin {{else}} Log in {{/if}}</a>
         </li>
     </ul>
 </template>

@@ -1,23 +1,39 @@
 <template name="Login">
+    {{> loginButtons}}
     {{#if userIsAdmin}}
-        {{> BlogAdmin}}
-    {{else}}
-        {{> loginButtons}}
+        {{> Admin }}
     {{/if}}
+</template>
+
+<template name="Admin">
+
+    <div class="btn-group">
+        <button type="button"
+                class="btn btn-default dropdown-toggle"
+                data-toggle="dropdown"
+                aria-expanded="false">
+            Administrative actions <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a id="BlogAdmin" href="#">Old posts</a></li>
+            <li><a id="NewPost" href="#">Create new post</a></li>
+            <li><a id="UserAdministration" href="#">User administration</a></li>
+            <li class="divider"></li>
+            <li><a id="LogoutButton" href="#">Log out</a></li>
+        </ul>
+    </div>
+
+    {{#if chosenViewIs 'BlogAdmin'}} {{>BlogAdmin}} {{/if}}
+    {{#if chosenViewIs 'NewPost'}} {{>NewPost}} {{/if}}
+    {{#if chosenViewIs 'UserAdministration'}} {{>UserAdministration}} {{/if}}
 </template>
 
 <template name="BlogAdmin">
     {{#each Blogposts}}
-    <h3>{{title}}</h3>
-    <h4>Written at {{time}} by {{author.profile.name}}</h4> <button id="deletePost">Delete this post</button>
-    <p>{{content}}</p>
+        <h3>{{title}}</h3>
+        <h4>Written at {{time}} by {{author.profile.name}}</h4> <button id="deletePost">Delete this post</button>
+        <p>{{content}}</p>
     {{/each}}
-    <p>
-        {{> NewPost}}
-    </p>
-    <p>
-        {{> UserAdministration}}
-    </p>
 </template>
 
 
