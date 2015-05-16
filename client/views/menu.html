@@ -9,7 +9,27 @@
         </li>
 
         <li role="presentation" class="{{ activeIfTemplateIs 'Login'}}">
-            <a href="{{pathFor 'admin'}}">{{#if loggedIn }} Admin {{else}} Log in {{/if}}</a>
+            <a href="{{pathFor 'admin'}}">{{#if loggedIn }} {{>AdminMenu }} {{else}} Log in {{/if}}</a>
         </li>
     </ul>
+
+</template>
+
+<template name="AdminMenu">
+    <div class="btn-group">
+        <button type="button"
+                class="btn btn-default dropdown-toggle"
+                data-toggle="dropdown"
+                aria-expanded="false">
+            Administrative actions <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a id="BlogAdmin" href="#">Manage posts</a></li>
+            <li><a id="NewPost" href="#">Create new post</a></li>
+            <li><a id="UserAdministration" href="#">User administration</a></li>
+            <li class="divider"></li>
+            <li><a id="LogoutButton" href="#">Log out</a></li>
+        </ul>
+    </div>
+
 </template>

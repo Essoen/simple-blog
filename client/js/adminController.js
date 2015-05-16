@@ -2,32 +2,31 @@
  * Created by esso on 15.05.15.
  */
 
-Session.set("adminChosenView", "BlogAdmin");
 
 Template.Login.helpers({
     'userIsAdmin' : function(){
-        return Meteor.user() && Meteor.user().roles.indexOf("admin") != -1;
+        return Meteor.user() != null;
     }
 });
 
+Template.LoginButtons.events({
+    'submit #loginform' : function(event, template) {
+        event.preventDefault();
+        Meteor.loginWithPassword(
+            template.find('#email').value,
+            template.find("#password").value,
+            function(error){
+                if(error){
+                    console.log(error);
+                }
+            });
+    }
+});
+
+Session.set("adminChosenView", "BlogAdmin"); // Changed by menuController.js
 Template.Admin.helpers({
     chosenViewIs : function(view){
         return view == Session.get("adminChosenView");
-    }
-});
-
-Template.Admin.events({
-   'click #BlogAdmin' : function(){
-       Session.set('adminChosenView', 'BlogAdmin');
-   },
-    'click #UserAdministration' : function(){
-        Session.set('adminChosenView', 'UserAdministration');
-    },
-    'click #NewPost' : function() {
-        Session.set('adminChosenView', 'NewPost');
-    },
-    'click #LogoutButton' : function(){
-        Meteor.logout();
     }
 });
 

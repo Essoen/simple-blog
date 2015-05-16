@@ -1,28 +1,33 @@
 <template name="Login">
-    {{> loginButtons}}
     {{#if userIsAdmin}}
         {{> Admin }}
+    {{else}}
+        {{> LoginButtons}}
     {{/if}}
+
+</template>
+
+<template name="LoginButtons">
+    <h3>Log in</h3>
+    <form class="form-inline" id="loginform">
+        <div class="form-group">
+            <label class="sr-only" for="email">Email address</label>
+            <input id="email" type="email" class="form-control"  placeholder="Enter email">
+        </div>
+        <div class="form-group">
+            <label class="sr-only" for="password">Password</label>
+            <input id="password" type="password" class="form-control"  placeholder="Password">
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> Remember me
+            </label>
+        </div>
+        <button id="signin" type="submit" class="btn btn-default">Sign in</button>
+    </form>
 </template>
 
 <template name="Admin">
-
-    <div class="btn-group">
-        <button type="button"
-                class="btn btn-default dropdown-toggle"
-                data-toggle="dropdown"
-                aria-expanded="false">
-            Administrative actions <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-            <li><a id="BlogAdmin" href="#">Manage posts</a></li>
-            <li><a id="NewPost" href="#">Create new post</a></li>
-            <li><a id="UserAdministration" href="#">User administration</a></li>
-            <li class="divider"></li>
-            <li><a id="LogoutButton" href="#">Log out</a></li>
-        </ul>
-    </div>
-
     {{#if chosenViewIs 'BlogAdmin'}} {{>BlogAdmin}} {{/if}}
     {{#if chosenViewIs 'NewPost'}} {{>NewPost}} {{/if}}
     {{#if chosenViewIs 'UserAdministration'}} {{>UserAdministration}} {{/if}}
@@ -39,8 +44,11 @@
 
 <template name="NewPost">
     <h3>Create new post</h3>
-    Title: <input type="text" id="title" value=""> <button id="save">Save post!</button> <br>
-    <textarea id="content" rows="15" > </textarea>
+    <div class="form-group">
+        <label for="title">Title: </label> <input type="text" id="title" value=""> <button id="save">Save post!</button> <br>
+        <textarea class="form-control" id="content" rows="15" cols="40" > </textarea>
+    </div>
+
 
 </template>
 

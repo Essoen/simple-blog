@@ -10,3 +10,21 @@ Template.Menu.helpers({
         return Meteor.user() != null;
     }
 });
+
+
+
+
+Template.AdminMenu.events({
+    'click #BlogAdmin' : function(){
+        Session.set('adminChosenView', 'BlogAdmin');
+    },
+    'click #UserAdministration' : function(){
+        Session.set('adminChosenView', 'UserAdministration');
+    },
+    'click #NewPost' : function() {
+        Session.set('adminChosenView', 'NewPost');
+    },
+    'click #LogoutButton' : function(){
+        Meteor.logout();
+    }
+});
