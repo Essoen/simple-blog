@@ -1,5 +1,5 @@
 <template name="Login">
-    {{#if userIsAdmin}}
+    {{#if currentUser}}
         {{> Admin }}
     {{else}}
         {{> LoginButtons}}
@@ -28,6 +28,7 @@
 </template>
 
 <template name="Admin">
+    <h4>Welcome, {{currentUser.name}}</h4>
     {{#if chosenViewIs 'BlogAdmin'}} {{>BlogAdmin}} {{/if}}
     {{#if chosenViewIs 'NewPost'}} {{>NewPost}} {{/if}}
     {{#if chosenViewIs 'UserAdministration'}} {{>UserAdministration}} {{/if}}
@@ -66,9 +67,11 @@
 <template name="CreateUser">
 
     <h3>Add a new user</h3>
-    Name: <input type="text" title="name"> <br>
-    Email: <input type="text" title="email"> <br>
-    Roles: {{#each Roles}} <input type="checkbox" value="{{this}}">{{this}} {{/each}}
+    Name: <input type="text" title="name" id="name"> <br>
+    Email: <input type="email" title="email" id="email"> <br>
+    Password: <input type="password" title="password" id="password"> <br>
+    Roles: <input id="role-admin" type="checkbox" value="admin"> Admin
+    <input id="role-author" type="checkbox" value="author"> Author
     <br>
     <button id="create">Create this user</button>
 

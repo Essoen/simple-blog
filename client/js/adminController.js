@@ -2,13 +2,6 @@
  * Created by esso on 15.05.15.
  */
 
-
-Template.Login.helpers({
-    'userIsAdmin' : function(){
-        return Meteor.user() != null;
-    }
-});
-
 Template.LoginButtons.events({
     'submit #loginform' : function(event, template) {
         event.preventDefault();
@@ -85,7 +78,19 @@ Template.CreateUser.events({
             }
        };
        Accounts.createUser(newUser);
-       Roles.addUsersToRoles(newUser, roles);
+       var roles = [];
+       if (isCheckboxChecked("#checkbox-admin")){
+           roles.append("admin")
+       }
 
+       if (isCheckboxChecked("#checkbox-author")){
+           roles.append("author");
+       }
+
+       Roles.addUsersToRoles(newUser, roles);
    }
 });
+
+function isCheckboxChecked(template, checkboxId){
+    return template.find(checkboxId).is(":checked");
+}

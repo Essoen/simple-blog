@@ -9,7 +9,7 @@
         </li>
 
         <li role="presentation" class="{{ activeIfTemplateIs 'Login'}}">
-            <a href="{{pathFor 'admin'}}">{{#if loggedIn }} {{>AdminMenu }} {{else}} Log in {{/if}}</a>
+            <a href="{{pathFor 'admin'}}">{{#if currentUser }} {{>AdminMenu }} {{else}} Log in {{/if}}</a>
         </li>
     </ul>
 
