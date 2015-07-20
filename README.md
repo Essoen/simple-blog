@@ -1,7 +1,7 @@
 # simple-blog
 
 Built with [Meteor](http://meteor.com). Uses [meteor-roles](https://github.com/alanning/meteor-roles
-), [iron-router](https://github.com/iron-meteor/iron-router) and [Bootstrap](http://getbootstrap.com).
+), [iron-router](https://github.com/iron-meteor/iron-router), [Froala Editor](https://github.com/froala/froala-reactive) and [Bootstrap](http://getbootstrap.com).
 
 Can be seen live at [someblogapp.meteor.com](http://someblogapp.meteor.com/). If you want to try posting, you can log in with `admin@example.com` and the password `orange1`.
 
