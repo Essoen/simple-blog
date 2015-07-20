@@ -1,4 +1,5 @@
 # simple-blog
+A simple blog and CMS.
 
 Built with [Meteor](http://meteor.com). Uses [meteor-roles](https://github.com/alanning/meteor-roles
 ), [iron-router](https://github.com/iron-meteor/iron-router), [Froala Editor](https://github.com/froala/froala-reactive) and [Bootstrap](http://getbootstrap.com).

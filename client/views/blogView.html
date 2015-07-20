@@ -10,6 +10,22 @@
     <h3>{{title}}</h3>
     <h4>Written at {{time}} by {{author.profile.name}}</h4>
     <p>{{{content}}}</p>
-
+    <br>
+    {{> PostComment postId=_id}}
+    {{> ShowComments postId=_id }}
 </template>
 
+
+<template name="PostComment">
+    <h4>Post a comment</h4>
+    <label for="username">Username: </label> <input type="text" id="username" value=""> <button id="save">Publish!</button> <br>
+    <textarea id="comment" placeholder="Enter a comment .." cols="30" ></textarea>
+    <p>HTML is allowed.</p>
+</template>
+
+
+<template name="ShowComments">
+    {{#each Comments}}
+        <strong>{{username}}: </strong> {{{comment}}}<br><br>
+    {{/each}}
+</template>

@@ -8,3 +8,7 @@ Meteor.publish(null, function (){
 Meteor.publish(null, function (){
     return Blogposts.find({})
 });
+
+Meteor.publish(null, function (){
+    return Comments.find({})
+});
