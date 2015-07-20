@@ -12,3 +12,4 @@ alanning:roles
 iron:router
 ian:accounts-ui-bootstrap-3
 accounts-base
+froala:editor-reactive
