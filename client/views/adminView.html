@@ -11,7 +11,7 @@
     <h3>Log in</h3>
     <form class="form-inline" id="loginform">
         <div class="form-group">
-            <label class="sr-only" for="email">Email address</label>
+            <label class="sr-only" for="email">E-mail address</label>
             <input id="email" type="email" class="form-control"  placeholder="Enter email">
         </div>
         <div class="form-group">
@@ -28,7 +28,7 @@
 </template>
 
 <template name="Admin">
-    <h4>Welcome, {{currentUser.name}}</h4>
+    <h4>Welcome, {{currentUser.profile.name}}</h4>
     {{#if chosenViewIs 'BlogAdmin'}} {{>BlogAdmin}} {{/if}}
     {{#if chosenViewIs 'NewPost'}} {{>NewPost}} {{/if}}
     {{#if chosenViewIs 'UserAdministration'}} {{>UserAdministration}} {{/if}}
@@ -38,7 +38,7 @@
     {{#each Blogposts}}
         <h3>{{title}}</h3>
         <h4>Written at {{time}} by {{author.profile.name}}</h4> <button id="deletePost">Delete this post</button>
-        <p>{{content}}</p>
+        <p>{{{content}}}</p>
     {{/each}}
 </template>
 
@@ -47,9 +47,11 @@
     <h3>Create new post</h3>
     <div class="form-group">
         <label for="title">Title: </label> <input type="text" id="title" value=""> <button id="save">Save post!</button> <br>
-        <textarea class="form-control" id="content" rows="15" cols="40" > </textarea>
-    </div>
 
+        <div id="content">
+            {{> froalaReactive _onbeforeSave=doSave _value=myDoc.myHTMLField}}
+        </div>
+    </div>
 
 </template>
 

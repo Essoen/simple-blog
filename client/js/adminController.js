@@ -48,18 +48,38 @@ Template.Admin.events({
     }
 });
 
+
+Template.NewPost.helpers({
+    // @ TODO sometime maybe
+    doSave: function () {
+        return false;
+        var self = this;
+        return function (e, editor) {
+            // Get edited HTML from Froala-Editor
+            var newHTML = editor.getHTML();
+            // Do something to update the edited value provided by the Froala-Editor plugin, if it has changed:
+            if (!_.isEqual(newHTML, self.myDoc.myHTMLField)) {
+                console.log("onSave HTML is :"+newHTML);
+                //Blogposts.update({_id: self.myDoc._id}, {
+                //    $set: {content: newHTML}
+                //});
+            }
+            return false; // Stop Froala Editor from POSTing to the Save URL
+        }
+    }
+});
+
 Template.NewPost.events({
     'click #save': function (event, template) {
         Blogposts.insert({
             time: new Date(),
             author: Meteor.user(),
             title: template.find("#title").value,
-            content: template.find('#content').value
+            content: template.find('.froala-view').innerHTML.toString()
         });
 
         template.find('#title').value = ''; // Empty fields
-        template.find('#content').value = '';
-
+        template.find('.froala-view').innerHTML = '';
     }
 });
 

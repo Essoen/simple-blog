@@ -1,5 +1,5 @@
 /**
- * Created by esso on 15.05.15.
+ * Created by Stein-Otto Svorstøl on 15.05.15.
  */
 Meteor.publish(null, function (){
     return Meteor.roles.find({})
