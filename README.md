@@ -8,7 +8,7 @@ Can be seen live at [simpleblogapp.meteor.com](http://simpleblogapp.meteor.com/)
 1. Install [Meteor](https://www.meteor.com/) 
 2. Get all the files and start the server:
 ```bash
-$ git clone git@github.com:Essoen/simple-blog.git
+$ git clone git@github.com:essoen/simple-blog.git
 $ cd simple-blog
 $ meteor
 ```
