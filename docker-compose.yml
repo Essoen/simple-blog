@@ -1,0 +1,11 @@
+app:
+  image: essoen/simple-blog
+  ports:
+   - "80:80"
+  links:
+   - mongo
+  environment:
+   - MONGO_URL=mongodb://mongo/simple-blog
+   - ROOT_URL=http://svorstol.com/simple-blog
+mongo:
+  image: mongo:latest
