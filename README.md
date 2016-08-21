@@ -12,3 +12,15 @@ $ git clone git@github.com:essoen/simple-blog.git
 $ cd simple-blog
 $ meteor
 ```
+
+## Deployment 
+We use Docker for simplicity. Clone the repo with `docker pull essoen/simple-blog`, and simply run the image with 
+
+    docker run -d \
+        -e ROOT_URL=http://yourdomain.com \
+        -e MONGO_URL=mongodb://url \
+        -e MONGO_OPLOG_URL=mongodb://oplog_url \
+        -p 8080:80 \
+        essoen/simple-blog
+
+To start both a Mongo-instance and the app, we use Compose. Run `docker-compose up`.
